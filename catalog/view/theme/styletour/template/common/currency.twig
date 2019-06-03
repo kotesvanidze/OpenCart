@@ -1,0 +1,13 @@
+{% if currencies|length > 1 %}
+    <li>
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            {% for currency in currencies %}
+                {% if currency.symbol_left and currency.code == code %} 
+                   <strong>{{ currency.symbol_left }} {{ text_currency }} <span class="carret"></span></strong> 
+                {% elseif currency.symbol_right and currency.code == code %}
+                    <strong>{{ text_currency }} {{ currency.symbol_right }}<span class="carret"></span></strong> 
+                {% endif %}
+            {% endfor %}
+        </a>
+    </li>
+{% endif %}
